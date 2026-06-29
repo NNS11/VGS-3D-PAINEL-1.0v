@@ -1,1 +1,0 @@
-# VGS-3D-PAINEL-1.0v

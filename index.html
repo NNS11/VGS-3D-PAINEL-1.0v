@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGS 3D - Cadastro Rápido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: system-ui, sans-serif; }
+        textarea, input { transition: all 0.2s; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen">
+    <div class="max-w-4xl mx-auto p-8">
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-3xl font-bold">V</div>
+                <div>
+                    <h1 class="text-4xl font-bold">VGS 3D</h1>
+                    <p class="text-zinc-400">Cadastro Simples de Produto</p>
+                </div>
+            </div>
+            
+            <a href="https://github.com/NNS11/VGS-3D-1.0v/blob/main/dados.js" 
+               target="_blank"
+               class="flex items-center gap-3 bg-zinc-800 hover:bg-zinc-700 px-6 py-3 rounded-2xl text-sm font-medium transition-colors">
+                <i class="fa-solid fa-github"></i>
+                <span>Ir para dados.js</span>
+            </a>
+        </div>
+
+        <div class="bg-zinc-900 rounded-3xl p-8">
+            <form id="product-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-2">ID</label>
+                            <input id="id" type="number" value="2" 
+                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-2">Nome do Produto</label>
+                            <input id="nome" type="text" placeholder="Action Figure Batman 8K" 
+                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-2">Categoria</label>
+                            <input id="categoria" type="text" placeholder="Colecionáveis" 
+                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-2">Subtítulo</label>
+                            <input id="subtitulo" type="text" placeholder="A precisão que sua estante merece." 
+                                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-zinc-400 mb-2">Preço Original</label>
+                                <input id="precoOriginal" type="text" placeholder="250,00" 
+                                       class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-zinc-400 mb-2">Preço com Desconto</label>
+                                <input id="precoDesconto" type="text" placeholder="189,90" 
+                                       class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-2">Fotos (um nome por linha)</label>
+                            <textarea id="fotos" rows="4" placeholder="produto1_1.jpg&#10;produto1_2.jpg" 
+                                      class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-5 py-4 focus:outline-none focus:border-blue-500"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-zinc-400 mb-2">Tags (separadas por vírgula)</label>
+                        <input id="tags" type="text" placeholder="heroi, dc, batman, resina" 
+                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-zinc-400 mb-2">Descrição</label>
+                        <textarea id="descricao" rows="4" placeholder="Edição limitada produzida em resina ultra-fina..." 
+                                  class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-5 py-4 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-zinc-400 mb-2">Detalhes (um por linha)</label>
+                        <textarea id="detalhes" rows="5" placeholder="Resina PRO 8K&#10;Pintura Manual&#10;Base temática" 
+                                  class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-5 py-4 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-zinc-400 mb-2">Tabela Técnica (Propriedade:Valor)</label>
+                        <textarea id="tabela" rows="5" placeholder="Altura:22cm&#10;Material:Resina&#10;Escala:1/10" 
+                                  class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-5 py-4 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- JSON Resultado -->
+        <div class="mt-8">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i>
+                    JS Pronto
+                </h2>
+                <button onclick="copiarCodigo()" 
+                        class="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 px-8 py-4 rounded-2xl font-semibold transition-all active:scale-95">
+                    <i class="fa-solid fa-copy"></i>
+                    COPIAR CÓDIGO
+                </button>
+            </div>
+            <pre id="json-output" class="bg-black p-8 rounded-3xl text-emerald-300 font-mono text-sm overflow-auto max-h-[420px] whitespace-pre-wrap border border-zinc-800"></pre>
+        </div>
+
+        
+    </div>
+
+    <script>
+        const output = document.getElementById('json-output');
+
+        function atualizarJSON() {
+            const id = parseInt(document.getElementById('id').value) || 1;
+            const nome = document.getElementById('nome').value.trim();
+            const categoria = document.getElementById('categoria').value.trim();
+            const subtitulo = document.getElementById('subtitulo').value.trim();
+            const precoOriginal = document.getElementById('precoOriginal').value.trim();
+            const precoDesconto = document.getElementById('precoDesconto').value.trim();
+            const descricao = document.getElementById('descricao').value.trim();
+
+            const fotos = document.getElementById('fotos').value
+                .split('\n')
+                .map(l => l.trim())
+                .filter(l => l);
+
+            const tags = document.getElementById('tags').value
+                .split(',')
+                .map(t => t.trim())
+                .filter(t => t);
+
+            const detalhes = document.getElementById('detalhes').value
+                .split('\n')
+                .map(l => l.trim())
+                .filter(l => l);
+
+            const tabelaLinhas = document.getElementById('tabela').value
+                .split('\n')
+                .map(l => l.trim())
+                .filter(l => l);
+            
+            const tabela = tabelaLinhas.map(linha => {
+                const partes = linha.split(':');
+                return [partes[0].trim(), (partes[1] || '').trim()];
+            });
+
+            const produto = {
+                id: id,
+                nome: nome || "Nome do Produto",
+                categoria: categoria || "Categoria",
+                subtitulo: subtitulo,
+                precoOriginal: precoOriginal,
+                precoDesconto: precoDesconto || "0,00",
+                fotos: fotos,
+                tags: tags,
+                descricao: descricao,
+                detalhes: detalhes,
+                tabela: tabela
+            };
+
+            output.textContent = JSON.stringify(produto, null, 4);
+        }
+
+        function copiarCodigo() {
+            const texto = output.textContent;
+            navigator.clipboard.writeText(texto).then(() => {
+                const btn = document.querySelector('button[onclick="copiarCodigo()"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> COPIADO!`;
+                btn.classList.add('!bg-emerald-500');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('!bg-emerald-500');
+                }, 2000);
+            });
+        }
+
+        // Atualiza em tempo real
+        document.getElementById('product-form').addEventListener('input', atualizarJSON);
+
+        // Inicializa
+        window.onload = () => {
+            atualizarJSON();
+        };
+    </script>
+</body>
+</html>
